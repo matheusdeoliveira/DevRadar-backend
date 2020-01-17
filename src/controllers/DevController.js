@@ -16,7 +16,7 @@ module.exports = {
     
     async store (request, response)  {
 
-    const {github_username, techs, latitude, longetude } = request.body;
+    const {github_username, techs, latitude, longitude } = request.body;
 
     let dev = await Dev.findOne({github_username});
 
@@ -29,7 +29,7 @@ module.exports = {
     
         const location = {
             type : 'Point',
-            coordinates : [longetude, latitude],
+            coordinates : [longitude, latitude],
         };
     
         dev = await Dev.create({
